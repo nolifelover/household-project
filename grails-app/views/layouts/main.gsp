@@ -32,6 +32,7 @@
             <g:menuSub current="sumarize.searchTumbon" link="${createLink(controller:'sumarize', action:'searchTumbon')}">${message(code:'menu.sum.searchTumbon')}</g:menuSub>
             <g:menuSub current="sumarize.tumbonAll"  correct="true" link="#">${message(code:'menu.sum.tumbon')}</g:menuSub>
             <g:menuSub current="sumarize.tumbonDetail" correct="true" link="#">${message(code:'menu.sum.tumbonDetail')}</g:menuSub>
+            <g:menuSub current="sumarize.compare|sumarize.doCompare" correct="true" link="#">${message(code:'menu.compare')}</g:menuSub>
           </g:menuMain>
         </ul>
         <!-- End Main Navigation -->

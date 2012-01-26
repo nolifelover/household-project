@@ -37,6 +37,15 @@ class CommonService {
         histories.sort{it.sortMonth}
     }
     
+    def compareFormat(histories){
+        histories.each{ history->
+            history.displayMonth = "'${this.monthFormat(history.month)}'"
+            history.amount = history.amount.abs()
+            history.sortMonth = this.monthFormat(history.month, "yyyy-MM")
+        }
+        histories.sort{it.sortMonth}
+    }
+    
     def pieFormat(mainCategories, values, limit = 6){
         def results = []
         mainCategories.each{ main ->

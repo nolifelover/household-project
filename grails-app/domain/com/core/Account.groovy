@@ -237,4 +237,42 @@ class Account {
         
         result
     }
+    
+    static def compareHistory(category, moo, tumbon, district, province){
+        def results = []
+        def accountInstances = Account.withCriteria(){
+            if(province){
+                eq("province", "${province}")
+            }
+            
+            if(district){
+                eq("district", "${district}")
+            }
+            
+            if(tumbon){
+                eq("tumbon", "${tumbon}")
+            }
+            
+            if(moo){
+                eq("moo", "${moo}")
+            }
+        }
+        
+        def transactions = Transaction.withCriteria(){
+            'in'('account', accountInstances)
+            eq('category', category)
+        }
+        
+        transactions.each{ t->
+            def map = results.find { it.month == t.month }
+            if(!map){
+                map = [month:t.month, amount: t.amount]
+                results << map
+            }else{
+                map.amount = map.amount + t.amount
+            }
+        }
+        
+        results
+    }
 }

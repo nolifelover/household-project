@@ -104,4 +104,25 @@ class SumarizeController {
         [incomeInstances: incomeInstances, outcomeInstances: outcomeInstances, month:month, displayMonth: displayMonth, values: values, avgs: avgs, pieIncome: pieIncome, pieOutcome: pieOutcome]
         
     }
+    
+    def compare = {
+        def collections = MainCategory.collectCategories()
+        def isMoo = false
+        if(params.moo){
+            isMoo = true
+        }
+        [isMoo: isMoo, categories: collections]
+    }
+    
+    def doCompare = {
+        def category = Category.get(params.category)
+        def histories = Account.compareHistory(category, params.moo, params.tumbon, params.district, params.province)
+        histories = commonService.compareFormat(histories)
+        def displayCategory = "${category?.mainCategory?.position}.${category.position} ${category.name}"
+        def isMoo = false
+        if(params.moo){
+            isMoo = true
+        }
+        [isMoo: isMoo, histories: histories, displayCategory: displayCategory]  
+    }
 }

@@ -28,4 +28,21 @@ class MainCategory {
             eq("paymentMethod", 2)
         }
     }
+    
+    static def collectCategories(){
+        def mainCategories = MainCategory.withCriteria(){
+            order("position", "asc")
+            order("position", "asc")
+        }
+        def collections = []
+        mainCategories.each{ main->
+            def categories = main.getSortCategories()
+            categories.each{category ->
+                def map = [category: category, name: "${main.position}.${category.position}.${category.name}", value: category.id]
+                collections << map
+            }
+        }
+        
+        collections
+    }
 }
