@@ -6,7 +6,7 @@
           <th><g:message code="account.tumbon"/></th>
       <th><g:message code="account.district"/></th>
       <th><g:message code="account.province"/></th>
-      <th><g:message code="common.remark"/></th>
+      <th width="20%"><g:message code="common.remark"/></th>
       </tr>
       </thead>
       <tbody>

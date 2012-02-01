@@ -25,8 +25,9 @@
           <table cellpadding="0" cellspacing="0" border="0" class="display">
             <thead>
               <tr>
-                <th width="70%"><g:message code="income.name"/></th>
+                <th width="60%"><g:message code="income.name"/></th>
                 <th width="10%"><g:message code="income.amount"/></th>
+                <th width="10%"><g:message code="income.family"/></th>
                 <th width="20%"><g:message code="common.remark"/></th>
               </tr>
             </thead>
@@ -38,6 +39,7 @@
                     <tr>
                       <td>${i+1}.${incomeInstance?.name}</td>
                       <td style="text-align: right">${values."$index"}</td>
+                      <td>${avgs."$index"}</td>
                       <td></td>
                     </tr>
                   </g:if>
@@ -61,8 +63,9 @@
           <table cellpadding="0" cellspacing="0" border="0" class="display">
             <thead>
               <tr>
-                <th width="70%"><g:message code="income.name"/></th>
+                <th width="60%"><g:message code="income.name"/></th>
                 <th width="10%"><g:message code="income.amount"/></th>
+                <th width="10%"><g:message code="income.family"/></th>
                 <th width="20%"><g:message code="common.remark"/></th>
               </tr>
             </thead>
@@ -84,8 +87,10 @@
                     </tr>
                     <g:each in="${categories}" status="c" var="category">
                       <tr>
+                        <g:set var="index" value="${category.id}" />
                         <td style="padding-left: 30px;">${i+1}.${c+1} ${category?.name}</td>
                         <td style="text-align: right">${values."$category.id"}</td>
+                        <td>${avgs."$category.id"}</td>
                         <td></td>
                       </tr>
                     </g:each>

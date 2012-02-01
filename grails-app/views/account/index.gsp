@@ -18,7 +18,7 @@
                 <th><g:message code="account.familyNumber"/></th>
                 <th><g:message code="account.province"/></th>
                 <th><g:message code="account.district"/></th>
-                <th><g:message code="common.remark"/></th>
+                <th width="20%"><g:message code="common.remark"/></th>
               </tr>
             </thead>
             <tbody>
@@ -29,7 +29,7 @@
                 <td>${accountInstance.familyNumber}</td>
                 <td>${accountInstance.province}</td>
                 <td>${accountInstance.district}</td>
-                <td><g:link controller="income" action="createAll" params="${[code: accountInstance.code]}">${message(code:"income.create")}</g:link></td>
+                <td><g:link controller="account" action="code" params="${[id: accountInstance.code]}"><g:message code="income.show"/></g:link> | <g:link controller="income" action="createAll" params="${[code: accountInstance.code]}">${message(code:"income.create")}</g:link></td>
               </tr>
             </g:each>
             </tbody>

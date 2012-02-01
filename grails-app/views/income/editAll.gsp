@@ -6,21 +6,21 @@
     <div class="box">
       <div class="header">
         <img src="<g:resource dir='images' file='tables_icon.png' />" alt="" width="30" height="30" />
-        <g:message code="income.create.title"/>
+        <g:message code="income.edit.title"/>
       </div>
       <div class="body">
         <div class="clearfix">
-          <g:form action="saveAll" name="transaction_create">
+          <g:form action="updateAll" name="transaction_create">
             <fieldset>
               <legend><g:message code="transaction.account"/></legend>
               <p>
                 <label><g:message code="account.code"/></label>
-                <input name="code" type="text" required="required" value="${accountCode}" class="textfield med"/>
+                <input name="code" type="text" required="required" value="${accountCode}" class="textfield med" readonly="true"/>
                 <small><g:message code="account.code.tips"/></small></p>
               <p>
               <p>
                 <label><g:message code="transaction.month"/></label>
-                <input name="month" type="text" required="required" value="${month}" class="textfield short"/>
+                <input name="month" type="text" required="required" value="${month}" class="textfield short" readonly="true"/>
               <p>
               <div style="clear: both;"></div>
               <h3 class="cufon"> ${message(code: "income.create.income")}</h3>
@@ -39,7 +39,7 @@
                         <g:set var="index" value="${categories[0].id}" />
                         <tr>
                           <td>${i+1}.${incomeInstance?.name}</td>
-                          <td style="text-align: right"><input name="category_${categories[0].id}" type="text" value="" class="textfield short"/></td>
+                          <td style="text-align: right"><input name="category_${categories[0].id}" type="text" value="${values."$index"}" class="textfield short"/></td>
                           <td></td>
                         </tr>
                       </g:if>
@@ -51,7 +51,7 @@
                         <g:each in="${categories}" status="c" var="category">
                           <tr>
                             <td style="padding-left: 30px;">${i+1}.${c+1} ${category?.name}</td>
-                            <td style="text-align: right"><input name="category_${categories[0].id}" type="text" value="" class="textfield short"/></td>
+                            <td style="text-align: right"><input name="category_${category.id}" type="text" value="${values."$category.id"}" class="textfield short"/></td>
                             <td></td>
                           </tr>
                         </g:each>
@@ -75,7 +75,7 @@
                         <g:set var="index" value="${categories[0].id}" />
                         <tr>
                           <td>${i+1}.${incomeInstance?.name}</td>
-                          <td style="text-align: right"><input name="category_${categories[0].id}" type="text" value="" class="textfield short"/></td>
+                          <td style="text-align: right"><input name="category_${categories[0].id}" type="text" value="${values."$index"}" class="textfield short"/></td>
                           <td></td>
                         </tr>
                       </g:if>
@@ -87,7 +87,7 @@
                         <g:each in="${categories}" status="c" var="category">
                           <tr>
                             <td style="padding-left: 30px;">${i+1}.${c+1} ${category?.name}</td>
-                            <td style="text-align: right"><input name="category_${categories[0].id}" type="text" value="" class="textfield short"/></td>
+                            <td style="text-align: right"><input name="category_${category.id}" type="text" value="${values."$category.id"}" class="textfield short"/></td>
                             <td></td>
                           </tr>
                         </g:each>

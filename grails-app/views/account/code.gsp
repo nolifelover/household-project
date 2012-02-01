@@ -26,7 +26,7 @@
                 <th><g:message code="account.history.income"/></th>
                 <th><g:message code="account.history.outcome"/></th>
                 <th><g:message code="account.history.balance"/></th>
-                <th><g:message code="common.remark"/></th>
+                <th width="20%"><g:message code="common.remark"/></th>
             </tr>
             </thead>
             <tbody>
@@ -36,7 +36,10 @@
                 <td>${history.income}</td>
                 <td>${history.outcome}</td>
                 <td>${history.income + history.outcome}</td>
-                <td><g:link controller="income" action="detail" params="${[id: accountInstance.code, month: history.month]}">${message(code:"income.detail")}</g:link></td>
+                <td>
+                  <g:link controller="income" action="detail" params="${[id: accountInstance.code, month: history.month]}">${message(code:"income.detail")}</g:link>
+                   | <g:link controller="income" action="editAll" params="${[id: accountInstance.code, month: history.month]}">${message(code:"income.edit")}</g:link>
+                </td>
               </tr>
             </g:each>
             </tbody>
