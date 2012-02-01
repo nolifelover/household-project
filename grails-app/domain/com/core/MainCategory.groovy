@@ -32,13 +32,18 @@ class MainCategory {
     static def collectCategories(){
         def mainCategories = MainCategory.withCriteria(){
             order("position", "asc")
-            order("position", "asc")
+            order("paymentMethod", "asc")
         }
         def collections = []
         mainCategories.each{ main->
             def categories = main.getSortCategories()
             categories.each{category ->
-                def map = [category: category, name: "${main.position}.${category.position}.${category.name}", value: category.id]
+                if(category.paymentMethod() == 1){
+                    def map = [category: category, name: "${main.position}. ${category.name}", value: category.id]
+                }else{
+                    def map = [category: category, name: "${main.position}.${category.position}.${category.name}", value: category.id]
+                }
+                
                 collections << map
             }
         }
