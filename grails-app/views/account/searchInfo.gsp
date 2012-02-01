@@ -19,7 +19,7 @@
           <td>${accountInstance.familyNumber}</td>
           <td>${accountInstance.province}</td>
           <td>${accountInstance.district}</td>
-          <td><g:link controller="income" action="createAll" params="${[code: accountInstance.code]}">${message(code:"income.create")}</g:link></td>
+          <td><g:link controller="account" action="code" params="${[id: accountInstance.code]}"><g:message code="income.show"/></g:link><g:link controller="income" action="createAll" params="${[code: accountInstance.code]}">${message(code:"income.create")}</g:link></td>
         </tr>
       </g:each>
       </tbody>
