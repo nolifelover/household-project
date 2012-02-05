@@ -122,7 +122,7 @@
                         return '<b>'+ this.point.name +'</b>: '+ Highcharts.numberFormat(this.percentage, 2) +' %';
                      }
                   },
-                  showInLegend: false
+                  showInLegend: true
                }
             },
              series: [{
@@ -157,7 +157,7 @@
                         return '<b>'+ this.point.name +'</b>: '+ Highcharts.numberFormat(this.percentage, 2) +' %';
                      }
                   },
-                  showInLegend: false
+                  showInLegend: true
                }
             },
              series: [{
