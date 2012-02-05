@@ -45,4 +45,35 @@ class AccountController {
             render(view: "create", model: [accountInstance: accountInstance])
         }
     }
+    
+    def edit = {
+        def accountInstance = Account.findByCode(params.id)
+        if(!accountInstance){
+            flash.message = message(code:"account.not_found")
+            flash.css = "error"
+            redirect(action: "index")
+        }else{
+            [accountInstance: accountInstance]
+        }        
+    }
+    
+    def update = {
+        def accountInstance = Account.get(params.id)
+        if(!accountInstance){
+            flash.message = message(code:"account.not_found")
+            flash.css = "error"
+            redirect(action: "index")
+        }else{
+            accountInstance.properties = params
+            if(accountInstance.save(flush:true)){
+                flash.message = message(code:"account.update.success")
+                flash.css = "info"
+                redirect(action: "edit", params:[id: accountInstance.code])
+            }else{
+                flash.message = message(code:"account.update.fail")
+                flash.css = "error"
+                redirect(action: "edit", params:[id: accountInstance.code])
+            }
+        }
+    }
 }
