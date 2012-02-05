@@ -34,6 +34,9 @@
             <g:menuSub current="sumarize.tumbonDetail" correct="true" link="#">${message(code:'menu.sum.tumbonDetail')}</g:menuSub>
             <g:menuSub current="sumarize.compare|sumarize.doCompare" correct="true" link="#">${message(code:'menu.compare')}</g:menuSub>
           </g:menuMain>
+          <g:menuMain current="user" message="${message(code:'menu.user')}" link="#">
+            <g:menuSub current="user.editProfile" link="${createLink(controller:'user', action:'editProfile')}">${message(code:'menu.user.profile')}</g:menuSub>
+          </g:menuMain>
         </ul>
         <!-- End Main Navigation -->
 
