@@ -35,7 +35,7 @@ class Account {
         def moosInstances = []
         def accountInstances = Account.withCriteria(){
             if(province){
-                like("provice", "${province}%")
+                like("province", "${province}%")
             }
             
             if(district){

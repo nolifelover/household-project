@@ -90,9 +90,12 @@ class SumarizeController {
         
         def values = [:]
         def avgs = [:]
+        def moos = [:]
+        def mooSize = Account.getMoos(params.tumbon, params.district, params.province).size()
         transactions.each{ t->
             values."${t.category.id}" = t.amount
-            avgs."${t.category.id}" = t.amount/result.accounts.size()
+            avgs."${t.category.id}" = t.amount / result.accounts.size()
+            moos."${t.category.id}" = t.amount / mooSize
         }
         
         def pieIncome = commonService.pieFormat(incomeInstances, values)
@@ -101,7 +104,7 @@ class SumarizeController {
         def displayMonth = commonService.monthFormat(month)
         
         log.debug "values => $values"
-        [incomeInstances: incomeInstances, outcomeInstances: outcomeInstances, month:month, displayMonth: displayMonth, values: values, avgs: avgs, pieIncome: pieIncome, pieOutcome: pieOutcome]
+        [incomeInstances: incomeInstances, outcomeInstances: outcomeInstances, month:month, displayMonth: displayMonth, values: values, avgs: avgs, moos: moos, pieIncome: pieIncome, pieOutcome: pieOutcome]
         
     }
     

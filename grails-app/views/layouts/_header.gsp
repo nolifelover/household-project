@@ -1,10 +1,10 @@
 <!-- Top Header area -->
 <div id="header_top">
 	<span class="fr">
-		<!--<g:link controller="logout" action="index"><g:message code="common.logout"/></g:link>-->
+		<g:link controller="authentication" action="logout"><g:message code="common.logout"/></g:link>
 	</span>
 	<!--Float links to left-->
-        <g:message code="website.welcome"/> <u><g:message code="website.user"/> </u>
+        <g:message code="website.welcome"/> <u> ${session.user?.fullname} </u>
 </div>
 <!-- End Header top Area -->
 

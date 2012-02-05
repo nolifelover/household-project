@@ -20,6 +20,7 @@
                 <th width="50%"><g:message code="income.name"/></th>
                 <th width="10%"><g:message code="income.amount"/></th>
                 <th width="20%"><g:message code="tumbon.detail.avg"/></th>
+                <th width="20%"><g:message code="tumbon.detail.moo"/></th>
                 <th width="20%"><g:message code="common.remark"/></th>
               </tr>
             </thead>
@@ -32,6 +33,7 @@
                       <td>${i+1}.${incomeInstance?.name}</td>
                       <td style="text-align: right">${values."$index"}</td>
                       <td style="text-align: right">${avgs."$index"}</td>
+                      <td style="text-align: right">${moos."$index"}</td>
                       <td></td>
                     </tr>
                   </g:if>
@@ -45,6 +47,7 @@
                         <td style="padding-left: 30px;">${i+1}.${c+1} ${category?.name}</td>
                         <td style="text-align: right">${values."$category.id"}</td>
                         <td style="text-align: right">${avgs."$category.id"}</td>
+                        <td style="text-align: right">${moos."$category.id"}</td>
                         <td></td>
                       </tr>
                     </g:each>
@@ -59,6 +62,7 @@
                 <th width="50%"><g:message code="income.name"/></th>
                 <th width="10%"><g:message code="income.amount"/></th>
                 <th width="20%"><g:message code="tumbon.detail.avg"/></th>
+                <th width="20%"><g:message code="tumbon.detail.moo"/></th>
                 <th width="20%"><g:message code="common.remark"/></th>
               </tr>
             </thead>
@@ -71,6 +75,7 @@
                       <td>${i+1}.${incomeInstance?.name}</td>
                       <td style="text-align: right">${values."$index"}</td>
                       <td style="text-align: right">${avgs."$index"}</td>
+                      <td style="text-align: right">${moos."$index"}</td>
                       <td></td>
                     </tr>
                   </g:if>
@@ -84,6 +89,7 @@
                         <td style="padding-left: 30px;">${i+1}.${c+1} ${category?.name}</td>
                         <td style="text-align: right">${values."$category.id"}</td>
                         <td style="text-align: right">${avgs."$category.id"}</td>
+                        <td style="text-align: right">${moos."$category.id"}</td>
                         <td></td>
                       </tr>
                     </g:each>
